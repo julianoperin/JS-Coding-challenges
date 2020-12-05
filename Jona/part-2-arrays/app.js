@@ -88,23 +88,5 @@ const nameKey = "Name";
 console.log(julianoInfo["first" + nameKey]); // Juliano
 console.log(julianoInfo["last" + nameKey]); // Perin
 
-// const question = prompt("What do you want to know about Juliano?");
-// console.log(julianoInfo[question]);
-
-// ADDING NEW INFO TO THE OBJECT
-julianoInfo.location = "Jersey City";
-julianoInfo["email"] = "julianoperins@gmail.com";
-
-console.log(julianoInfo);
-
-console.log(
-  `${julianoInfo.firstName} has ${julianoInfo.friends.length} friends, and his best friend is ${julianoInfo.friends[0]}`
-);
-
-const julianoInfo = {
-  firstName: "Juliano",
-  lastName: "Perin",
-  age: 2020 - 1991,
-  job: "teacher",
-  friends: ["Michael", "Peter", "Steven"],
-};
+const question = prompt("What do you want to know about Juliano?");
+console.log(julianoInfo[question]);
