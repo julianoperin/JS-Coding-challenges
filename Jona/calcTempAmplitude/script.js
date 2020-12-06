@@ -58,6 +58,8 @@ let test = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
 
 // console.log(diff(maxNumber, minNumber));
 
+// My way
+
 const calcAmplitude = arr => {
   let results = [];
   arr.map(item => {
@@ -67,12 +69,12 @@ const calcAmplitude = arr => {
     results.sort((a, b) => a - b);
   });
 
-  // Find the max number
+  //? Find the max number
   const maxNumber = results.reduce((a, b) => {
     return Math.max(a, b);
   });
 
-  // Find the min Number
+  //? Find the min Number
   const minNumber = results.reduce((a, b) => {
     return Math.min(a, b);
   });
@@ -87,3 +89,65 @@ const calcAmplitude = arr => {
 };
 
 console.log(calcAmplitude(test));
+
+//! Another way
+
+let temperaturesTwo = [3, -2, -11, -1, 'error', 9, 13, 27, 15, 14, 9, 5];
+
+const calcTemps = testArray => {
+  //? find the max number in the array and
+  //? find the min number in the array
+
+  let max = testArray[0];
+  let min = testArray[0];
+  let amp = 0;
+
+  for (let i = 0; i < testArray.length; i++) {
+    const curTemp = testArray[i];
+
+    // ? Skip !== numbers
+    if (typeof curTemp !== 'number') continue;
+
+    if (curTemp > max) max = curTemp;
+    if (curTemp < min) min = curTemp;
+    amp = max - min;
+  }
+  return `The Amplitude is ${amp}, the maximum temperature was ${max} and the minimum temperature was ${min}.`;
+};
+console.log(calcTemps(temperaturesTwo));
+
+//! Problem 2: Array now should receive two arrays
+
+// temperaturesTwo
+// test
+
+// let thirArr = [...temperaturesTwo, ...test];
+let thirArr = temperaturesTwo.concat(test);
+
+console.log(thirArr);
+
+console.log(calcTemps(thirArr));
+
+const calcTemperaturesOfTwoArrays = (t1, t2) => {
+  const temps = t1.concat(t2);
+  console.log(temps);
+
+  let max = temps[0];
+  let min = temps[0];
+  let amp = 0;
+
+  for (let i = 0; i < temps.length; i++) {
+    const curTemp = temps[i];
+
+    // ? Skip !== numbers
+    if (typeof curTemp !== 'number') continue;
+
+    if (curTemp > max) max = curTemp;
+    if (curTemp < min) min = curTemp;
+    amp = max - min;
+  }
+  return `The Amplitude is ${amp}, the maximum temperature was ${max} and the minimum temperature was ${min}.`;
+};
+console.log(
+  calcTemperaturesOfTwoArrays([1, 5, 9, 7, 3, 4], [9, 3, 7, 1, 2, 5])
+);
